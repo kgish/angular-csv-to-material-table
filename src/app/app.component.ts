@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Papa as CSV, ParseConfig, ParseResult } from 'ngx-papaparse';
+import { Papa, ParseConfig, ParseResult } from 'ngx-papaparse';
 import { HttpClient } from '@angular/common/http';
 
 const cn = 'AppComponent';
@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
     displayedColumns: string[] = [];
     dataSource: Array<object> = [];
 
-    constructor(private http: HttpClient, private csv: CSV) {
+    constructor(private http: HttpClient, private papa: Papa) {
     }
 
     ngOnInit() {
@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
             header: true
         };
 
-        this.csv.parse(data, options);
+        this.papa.parse(data, options);
     }
 
     handleComplete(results: ParseResult<any>) {

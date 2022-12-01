@@ -1,4 +1,4 @@
-position,name,weight,symbol
+index,name_of_element,atomic_mass,chemical_symbol
 1,Hydrogen,1.0079,H
 2,Helium,4.0026,He
 3,Lithium,6.941,Li
