@@ -2,6 +2,8 @@
 
 An example application which converts a csv file to a [material table](https://material.angular.io/components/table/overview) on the fly.
 
+![Screenshot](images/screenshot.png)
+
 ## Introduction
 
 This is a simple demo application that shows you how to read the contents of a csv file and transform it automatically to a table.

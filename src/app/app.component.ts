@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
 
     displayedColumns: string[] = [];
     dataSource: Array<object> = [];
+    title: Record<string, string> = {};
 
     constructor(private http: HttpClient, private papa: Papa) {
     }
@@ -41,11 +42,17 @@ export class AppComponent implements OnInit {
                 console.error(`${ cn } handleComplete() errors='${ JSON.stringify(badErrors) }'!`);
             } else {
                 this.displayedColumns = Object.keys(data[0]);
+                this.displayedColumns.forEach(column =>
+                    this.title[column] = this.capitalize(column.replace(/_/g, ' '))
+                )
                 console.log(`${ cn } handleComplete() displayedColumns='${JSON.stringify(this.displayedColumns)}'`);
+                console.log(`${ cn } handleComplete() titles='${JSON.stringify(this.title)}'`);
                 this.dataSource = data;
             }
         } else {
             console.error(`${ cn } handleComplete() empty data!`);
         }
     }
+
+    private capitalize = (str: string) => str[0].toUpperCase() + str.slice(1);
 }
